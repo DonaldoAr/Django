@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.template import Template, Context
 import datetime
+# THE WAY TO LOAD A TEMPLATE
+from django.template import loader
 # THIS IS MY FIRST VIEW
 def saludo(req):
     return HttpResponse("Hola mundo de Django")
@@ -29,13 +31,19 @@ def nombre(req, nombre, apellido):
 def saludoPlantilla(req):
     name = "Luis"
     nombre2 = "Donaldo"
-    doc_ext = open("./public/index.html")    
-    plt = Template( doc_ext.read() )
-    doc_ext.close()
-    ctx = Context( {
+    # doc_ext = open("./public/index.html")    
+    # plt = Template( doc_ext.read() )
+    # doc_ext.close()
+    plantilla = loader.get_template('index.html')
+    # ctx = Context( {
+    #     "name": name,
+    #     "name2": nombre2,
+    #     "temas": ["platillas", "modelos", "formularios", "vistas", "desplieguess"]
+    # } )
+    dic = {
         "name": name,
         "name2": nombre2,
         "temas": ["platillas", "modelos", "formularios", "vistas", "desplieguess"]
-    } )
-    document = plt.render( ctx )
+    }
+    document = plantilla.render( dic )
     return HttpResponse( document )
