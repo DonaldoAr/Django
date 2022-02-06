@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mi nombre es: {{name}} {{name2}}</h1>
+    <p>Temas del curso: </p>
+    <p>
+        <ul>
+            {% if temas %}
+                {% for tema in temas %}
+                <!-- {{ tema }}
+                <br> -->
+                    <li>{{tema}}</li>
+                {% endfor %}
+            {% else %}
+                    No hay datos cargados
+            {% endif %}
+            
+        </ul>
+        
+    </p>
+</body>
+</html>
