@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Mi nombre es: {{name}} {{name2}}</h1>
+    <!-- EN EL NAME VAMOS A AGREGAR UN FILTRO -->
+    <h1>Mi nombre es: {{name|lower}} {{name2.upper}}</h1>
     <p>Temas del curso: </p>
     <p>
         <ul>
@@ -15,7 +16,7 @@
                 {% for tema in temas %}
                 <!-- {{ tema }}
                 <br> -->
-                    <li>{{tema}}</li>
+                    <li>{{tema|first|upper}}</li>
                 {% endfor %}
             {% else %}
                     No hay datos cargados
