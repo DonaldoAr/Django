@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from views import saludo, error404, giveFecha, nombre, saludoPlantilla
+from views import saludo, error404, giveFecha, nombre, saludoPlantilla, main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('404/', error404),
     path('fecha/', giveFecha),
     path('name/<nombre>/<apellido>', nombre),
-    path('plantilla/', saludoPlantilla)
+    path('plantilla/', saludoPlantilla),
+    path('main/', main)
 ]

@@ -3,6 +3,11 @@ from django.template import Template, Context
 import datetime
 # THE WAY TO LOAD A TEMPLATE
 from django.template import loader
+
+# FOR TO WRITE A MYNOR LINE'S CODE
+from django.shortcuts import render
+
+
 # THIS IS MY FIRST VIEW
 def saludo(req):
     return HttpResponse("Hola mundo de Django")
@@ -47,3 +52,11 @@ def saludoPlantilla(req):
     }
     document = plantilla.render( dic )
     return HttpResponse( document )
+
+# EN EST RUTA SE USA shortcuts DE DJANGO PARA SIMPLIFICAR EL CODIGO
+def main(req): 
+    dic = { "user": ["Luis", "Donaldo"],
+            "actividad": ["Prometeus", "Alien", "Anime"]}
+    return render(req, 'main.html', dic)
+    
+    
